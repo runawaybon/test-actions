@@ -16,7 +16,7 @@ jobs:
     - shell: bash
       id: check_file_changed          
       run: |
-        if [[ -n "$COMMIT_ID" ]]; 
+        if [[ -n $COMMIT_ID ]]; 
               then
                 git diff --name-only $COMMIT_ID
                 git diff --name-only $COMMIT_ID > output/changes.txt
