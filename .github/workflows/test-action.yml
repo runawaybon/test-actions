@@ -13,5 +13,9 @@ jobs:
         fetch-depth: 2
     - shell: pwsh
       id: check_file_changed
+      with:
+          name: change_file_list
+          path: output/change.txt
       run: |
         git diff --name-only HEAD~
+        git diff --name-only HEAD~ > output/change.txt
