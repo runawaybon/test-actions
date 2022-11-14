@@ -4,7 +4,7 @@ on:
     branches:
       - 'main'
 env:
-  COMMIT_ID: 992bac97d32bec88108d9ecca5abc97c5201944c
+  COMMIT_ID: 
 
 jobs:
   conditional_step:
