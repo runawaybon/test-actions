@@ -17,7 +17,7 @@ jobs:
         git diff --name-only HEAD~
         git diff --name-only HEAD~ > change.txt        
     - name: Upload list of changed files
-        uses: actions/upload-artifact@v3
-        with:
-          name: changelist
-          path: change.txt
+      uses: actions/upload-artifact@v3
+      with:
+        name: changelist
+        path: change.txt
