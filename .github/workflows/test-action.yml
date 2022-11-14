@@ -13,16 +13,16 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2
-    - shell: pwsh
+    - shell: bash
       id: check_file_changed          
       run: |
         if [[ -n "$COMMIT_ID" ]]; 
               then
-                git diff --name-only HEAD~
-                git diff --name-only HEAD~ > output/changes.txt
-              else
                 git diff --name-only $COMMIT_ID
                 git diff --name-only $COMMIT_ID > output/changes.txt
+              else
+                git diff --name-only HEAD~
+                git diff --name-only HEAD~ > output/changes.txt
         fi        
     - name: Upload list of changed files
       uses: actions/upload-artifact@v3
