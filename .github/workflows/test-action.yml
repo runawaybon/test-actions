@@ -19,13 +19,13 @@ jobs:
         if [[ -n $COMMIT_ID ]]; 
               then
                 git diff --name-only $COMMIT_ID
-                git diff --name-only $COMMIT_ID > output/changes.txt
+                git diff --name-only $COMMIT_ID > changes.txt
               else
                 git diff --name-only HEAD~
-                git diff --name-only HEAD~ > output/changes.txt
+                git diff --name-only HEAD~ > changes.txt
         fi        
     - name: Upload list of changed files
       uses: actions/upload-artifact@v3
       with:
         name: changelist
-        path: change.txt
+        path: changes.txt
