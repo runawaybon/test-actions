@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - 'main'
+env:
+  COMMIT_ID: '992bac97d32bec88108d9ecca5abc97c5201944c'
 
 jobs:
   conditional_step:
@@ -14,8 +16,14 @@ jobs:
     - shell: pwsh
       id: check_file_changed          
       run: |
-        git diff --name-only HEAD~
-        git diff --name-only HEAD~ > change.txt        
+        if [[ -n "$COMMIT_ID" ]]; 
+              then
+                git diff --name-only HEAD~
+                git diff --name-only HEAD~ > output/changes.txt
+              else
+                git diff --name-only $COMMIT_ID
+                git diff --name-only $COMMIT_ID > output/changes.txt
+        fi        
     - name: Upload list of changed files
       uses: actions/upload-artifact@v3
       with:
