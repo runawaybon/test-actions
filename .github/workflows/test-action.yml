@@ -12,10 +12,12 @@ jobs:
       with:
         fetch-depth: 2
     - shell: pwsh
-      id: check_file_changed
-      with:
-          name: change_file_list
-          path: output/change.txt
+      id: check_file_changed          
       run: |
         git diff --name-only HEAD~
-        git diff --name-only HEAD~ > output/change.txt
+        git diff --name-only HEAD~ > change.txt        
+    - name: Upload list of changed files
+        uses: actions/upload-artifact@v3
+        with:
+          name: changelist
+          path: change.txt
