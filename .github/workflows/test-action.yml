@@ -4,7 +4,7 @@ on:
     branches:
       - 'main'
 env:
-  COMMIT_ID: '992bac97d32bec88108d9ecca5abc97c5201944c'
+  COMMIT_ID: 992bac97d32bec88108d9ecca5abc97c5201944c
 
 jobs:
   conditional_step:
@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2
-    - shell: dash
+    - shell: bash
       id: check_file_changed          
       run: |
         if [[ -n $COMMIT_ID ]]; 
