@@ -15,7 +15,7 @@ jobs:
         repository: jabedhasan21/java-hello-world-with-gradle
     - name: Build with Gradle
       run: |
-        - ls
-        - cd /home/runner/work/test-actions/test-actions
-        - ls
+        ls
+        cd /home/runner/work/test-actions/test-actions
+        ls
         
