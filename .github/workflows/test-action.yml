@@ -17,5 +17,5 @@ jobs:
       run: |
         - ls
         - cd /home/runner/work/test-actions/test-actions
-        - ./gradlew build
+        - ls
         
