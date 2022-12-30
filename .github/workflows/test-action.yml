@@ -2,7 +2,7 @@ name: demo
 on:
   push:
     branches:
-      - 'main'
+      - 'pipeline-dev'
 env:
   COMMIT_ID: 5a47159a4e5a468cce7dc3ec83b9dc169a657c83
 
@@ -10,22 +10,6 @@ jobs:
   conditional_step:
     runs-on: 'ubuntu-20.04'
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
-        fetch-depth: 2
-    - shell: bash
-      id: check_file_changed          
-      run: |
-        if [[ -n $COMMIT_ID ]]; 
-              then
-                git diff --name-only $COMMIT_ID
-                git diff --name-only $COMMIT_ID > changes.txt
-              else
-                git diff --name-only HEAD~
-                git diff --name-only HEAD~ > changes.txt
-        fi        
-    - name: Upload list of changed files
-      uses: actions/upload-artifact@v3
-      with:
-        name: changelist
-        path: changes.txt
+        repository: jabedhasan21/java-hello-world-with-gradle
