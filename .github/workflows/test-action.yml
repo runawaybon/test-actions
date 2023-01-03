@@ -24,6 +24,7 @@ jobs:
       uses: gradle/gradle-build-action@v2    
     - name: Execute Gradle build
       run: ./gradlew build
+      
     - run: cd build/libs
     - run: ls
     - run: java -jar build/libs/jb-hello-world-0.1.0.jar
